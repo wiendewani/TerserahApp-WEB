@@ -12,6 +12,6 @@ class WebController extends Controller
         $transaksi = transaksi::all();
         // Return ke view Transaksi + yg di dalam [..] ngirim data $transaksi
         return view('transaksi',['transaksi' => $transaksi]);
-        
+         
     }
 }

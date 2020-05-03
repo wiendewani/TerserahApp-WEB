@@ -12,7 +12,7 @@ class CreatePembelisTable extends Migration
      * @return void
      */
     public function up()
-    {
+    { 
         Schema::create('pembelis', function (Blueprint $table) {
             $table->increments('id'); 
             $table->string('nm_pembeli');

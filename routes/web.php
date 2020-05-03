@@ -16,5 +16,5 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
-Route::get('/transaksi', 'WebController@index');
+Route::get('/', 'HomeController@index')->name('home'); 
+Route::get('/transaksi', 'WebController@index'); 

@@ -23,7 +23,7 @@
 						@foreach($transaksi as $a)
 						<tr>
 							<td><?php $transaksi = App\Transaksi::find(1);
-
+ 
 echo $transaksi->nm_pembeli; ?></td>
                             <!-- <td>{{ $a->jenis_kelamin }}</td>
 							<td>{{ $a->alamat }}</td>

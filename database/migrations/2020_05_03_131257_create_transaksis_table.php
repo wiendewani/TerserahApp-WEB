@@ -18,7 +18,7 @@ class CreateTransaksisTable extends Migration
             $table->integer('id_pembeli')->unsigned();
             $table->foreign('id_pembeli')->references('id')->on('pembelis');
             $table->dateTime('tgl_beli');	
-        });
+        }); 
     }
 
     /**
