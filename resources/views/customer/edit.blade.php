@@ -11,11 +11,12 @@
         <div class="row">
             <div class="col-lg-12">
 
-            <form action="/pembeli/{{$Pembeli->kode_pembeli}}/update" method="POST">
+            @foreach($pembeli as $Pembeli)
+            <form action="/pembeli/update/{{$Pembeli -> kode_pembeli}}" method="POST">
                 {{csrf_field()}}
                 <div class="form-group">
                     <label for="namaPembeli">Kode Pembeli</label>
-                    <input name="kode_pembeli" type="number" class="form-control" id="namaPembeli" aria-describedby="emailHelp" placeholder="Masukan Nama Pembeli" value="{{$Pembeli -> kode_pembeli}}">
+                    <input name="kode_pembeli" type="number" class="form-control" id="namaPembeli" aria-describedby="emailHelp" placeholder="Masukan Nama Pembeli" value="{{$Pembeli -> kode_pembeli}}" disabled>
                   </div>
                 <div class="form-group">
                   <label for="namaPembeli">Nama Pembeli</label>
@@ -42,6 +43,7 @@
                   </div>
                   <button type="submit" class="btn btn-warning">Update</button>
             </form>
+            @endforeach
         </div>
         </div>
 @endsection

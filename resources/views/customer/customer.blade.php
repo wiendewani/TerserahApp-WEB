@@ -9,16 +9,23 @@
           </div>
         @endif
         <div class="row">
-            <div class="col-6">
-                <h1>Data Cumstomers</h1>
+            <div class="col-4 my-lg-1">
+                <h1>Data Customer</h1>
             </div>
 
-            <div class="col-6">
+            <div class="col-4 my-lg-3">
                 <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal">
                     Tambahkan Pembeli
                 </button>
+            </div>
 
-
+            <div class="col-4 ">
+                <form class="form-inline my-4 my-lg-3" method="get" action="/pembeli/search">
+                    <input name="pembeli_search" class="form-control mr-sm-2" type="search" placeholder="Masukan Nama Customer" aria-label="Search">
+                    <span class="input-group-prepend">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </span>
+                </form>
             </div>
 
             <table class="table">
@@ -41,7 +48,7 @@
                     <td>{{$Pembeli -> alamat}}</td>
                     <td>{{$Pembeli -> kota}}</td>
                 <td>
-                    <a href="{{action('PembeliController@edit',$Pembeli['kode_pembeli'])}}"  class="btn btn-warning btn-sm">Edit</a>
+                    <a href="/pembeli/edit/{{$Pembeli ->kode_pembeli}}"  class="btn btn-warning btn-sm">Edit</a>
                     <a href="/pembeli/{{$Pembeli ->kode_pembeli}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus ?')">Delete</a>
                 </td>
                 </tr>
@@ -67,10 +74,7 @@
     <div class="modal-body">
         <form action="/pembeli/create" method="POST">
             {{csrf_field()}}
-            <div class="form-group">
-                <label for="namaPembeli">Kode Pembeli</label>
-                <input name="kode_pembeli" type="number" class="form-control" id="namaPembeli" aria-describedby="emailHelp" placeholder="Masukan Nama Pembeli">
-              </div>
+            
             <div class="form-group">
               <label for="namaPembeli">Nama Pembeli</label>
               <input name="nama_pembeli" type="text" class="form-control" id="namaPembeli" aria-describedby="emailHelp" placeholder="Masukan Nama Pembeli">
