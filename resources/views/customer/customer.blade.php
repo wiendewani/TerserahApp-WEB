@@ -30,7 +30,6 @@
                     <th>Kota</th>
                     <th>Action</th>
                 </tr>
-                foreach
 
                 @foreach ($data_pembeli as $Pembeli)
                 {{-- perulangan untuk menampilkan data --}}
