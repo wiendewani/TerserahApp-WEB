@@ -15,8 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 
 // Auth::routes();
+Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/pembeli','PembeliController@index');
 Route::post('/pembeli/create','PembeliController@create');
 Route::get('/pembeli/{kode_pembeli}/edit','PembeliController@edit');
@@ -24,6 +25,15 @@ Route::post('/pembeli/{kode_pembeli}/update','PembeliController@update');
 Route::get('/pembeli/{kode_pembeli}/delete','PembeliController@delete');
 Route::get('/search','PembeliController@search');
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/transaksi', 'WebController@index');
+// Route::get('/transaksi', 'TransaksiController@index');
 
 
+
+
+// Route::get('/', 'HomeController@index')->name('home'); 
+// Route::resource('transaksi', 'TransaksiController@index');
+Route::get('/transaksi', 'TransaksiController@index');  
+
+// Route::get('/transaksi', function(){
+//     return view('transaksi.index');
+// });
