@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Route;
 
 // Auth::routes();
 
-<<<<<<< HEAD
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/pembeli','PembeliController@index');
 Route::post('/pembeli/create','PembeliController@create');
@@ -24,9 +23,7 @@ Route::get('/pembeli/{kode_pembeli}/edit','PembeliController@edit');
 Route::post('/pembeli/{kode_pembeli}/update','PembeliController@update');
 Route::get('/pembeli/{kode_pembeli}/delete','PembeliController@delete');
 Route::get('/search','PembeliController@search');
-=======
-Route::get('/', 'HomeController@index')->name('home'); 
-Route::get('/transaksi', 'WebController@index'); 
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/transaksi', 'WebController@index');
 
->>>>>>> ea57a76240f1460e7490202b007ca45e7a097f34
 
