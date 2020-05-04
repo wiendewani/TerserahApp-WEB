@@ -19,6 +19,7 @@ class CreatePembelisTable extends Migration
             $table->string('jenis_kelamin');
             $table->text('alamat');
             $table->string('kota');
+            $table->timestamps();
         });
     }
 

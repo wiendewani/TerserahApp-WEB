@@ -18,3 +18,15 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home'); 
 Route::get('/transaksi', 'WebController@index'); 
+
+
+// START Customer Controller
+Route::get('/customer','CustomerController@index');
+Route::get('/customer/tambah','CustomerController@create');
+Route::post('/customer/store','CustomerController@store');
+
+Route::get('/customer/edit/{id}','CustomerController@edit');
+Route::post('/customer/update','CustomerController@update');
+
+Route::get('/customer/hapus/{id}','CustomerController@destroy');
+// END Customer Controller
