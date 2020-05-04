@@ -20,27 +20,22 @@ class PembeliController extends Controller
     }
 
     public function edit($kode_pembeli){
-        $Pembeli = \App\Pembeli::find($kode_pembeli);
-        return view('customer.edit',['Pembeli'=>$Pembeli]);
+        // $Pembeli = \App\Pembeli::find($kode_pembeli);
+        // return view('customer.edit',['Pembeli'=>$Pembeli]);
+        $pembeli = DB::table('pembeli')->where('kode_pembeli',$kode_pembeli)->get();
+        return view('customer.edit',['pembeli' => $pembeli]);
     }
 
-    public function update(Request $request){
+    public function update(Request $request, $id)
+    {
+        DB::table('pembeli')->where('kode_pembeli',$request->kode_pembeli)->update([
+            'nama_pembeli' => $request->nama_pembeli,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'alamat' => $request->alamat,
+            'kota' => $request->kota
+        ]);
 
-       $kode_pembeli = $request->kode_pembeli;
-       $nama_pembeli = $request ->nama_pembeli;
-       $jenis_kelamin = $request ->jenis_kelamin;
-       $kota = $request ->kota;
-       $alamat = $request ->alamat;
-
-       Pembeli::where('kode_pembeli',$kode_pembeli)->update([
-           'nama_pembeli' =>$nama_pembeli,
-           'jenis_kelamin' =>$jenis_kelamin,
-           'kota' => $kota,
-           'alamat'=> $alamat
-
-       ]);
-
-        return redirect('/pembeli')->with('sukses','Data berhasil diupdate');
+        return redirect('/pembeli');
     }
 
     public function delete($kode_pembeli){
@@ -50,8 +45,14 @@ class PembeliController extends Controller
 
     public function search(Request $request)
     {
-        $search = $request->get('search');
-        $Pembeli = DB::table('pembeli')->where('nama_pembeli','like','%'.$search.'%')->paginate(5);
-        return view('customer',['pembeli'=>$Pembeli]);
+        // menangkap data pencarian
+		$search = $request->pembeli_search;
+
+        // mengambil data dari table pegawai sesuai pencarian data
+        $search_barang = DB::table('pembeli')->where('nama_pembeli','like',"%".$search."%")
+        ->paginate();
+
+            // mengirim data pegawai ke view index
+        return view('customer.customer',['data_pembeli' => $search_barang]);
     }
 }
