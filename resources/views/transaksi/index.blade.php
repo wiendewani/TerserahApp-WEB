@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 @section('content')
 
 <div class="row">
@@ -15,7 +15,7 @@
 
         <table class="table table-bordered" align="center"> 
             <tr>
-                <th>ID Transaksi</th>
+                <th>Kode Transaksi</th>
                 <th>Tanggal Beli</th>
                 <th>Nama Pembeli</th>
                 <th>Nama Barang</th>
@@ -49,14 +49,10 @@
         <div class="modal-body">
             <form action="/transaksi/create" method="POST">
                 {{csrf_field()}}
-                <div class="form-group">
-                    <label for="namaPembeli">Kode Transaksi</label>
-                    <input name="id" type="number" class="form-control" id="namaPembeli" aria-describedby="emailHelp">
-                </div>
-
+                
                 <div class="form-group">
                     <label for="namaPembeli">Nama Pembeli</label>
-                    <select name="kode_pembeli" class="form-control" id="exampleFormControlSelect1">
+                    <select name="namaPembeli" class="form-control" id="namaPembeli">
                         @foreach($pembeli as $nama_pembeli)
                             <option value="{{$nama_pembeli -> kode_pembeli}}">{{$nama_pembeli -> nama_pembeli}} - {{$nama_pembeli -> kota}}</option>
                         @endforeach
@@ -64,12 +60,17 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="exampleFormControlSelect1">Nama Barang</label>
-                    <select name="kode_barang" class="form-control" id="exampleFormControlSelect1">
+                    <label for="namaBarang">Nama Barang</label>
+                    <select name="namaBarang" class="form-control" id="namaBarang">
                         @foreach($barang as $data_barang)
-                            <option value="{{$data_barang -> kode_barang}}}">{{$data_barang -> nama_barang}} - {{$data_barang -> type}} - {{$data_barang -> merk}}</option>
+                            <option value="{{$data_barang -> kode_barang}}">{{$data_barang -> nama_barang}} - {{$data_barang -> type}} - {{$data_barang -> merk}}</option>
                         @endforeach
                     </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="tanggal">Tanggal </label>
+                    <input name="tanggal" type="text" class="form-control" id="tanggal" aria-describedby="emailHelp" value="{{ date("Y-m-d h:i:sa") }}" disabled>
                 </div>
 
                 <div class="modal-footer">

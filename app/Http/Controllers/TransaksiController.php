@@ -7,6 +7,7 @@ use App\Transaksi;
 use App\Barang;
 use App\Pembeli;
 use DB;
+use Carbon\Carbon;
 
 class TransaksiController extends Controller
 {
@@ -34,9 +35,14 @@ class TransaksiController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(Request $request)
-    {
-        \App\Transaksi::create($request->all());
-        return redirect()->with('sukses','Data berhasil diinput');
+    { 
+        $tanggal = Carbon::now();
+        DB::table('transaksis')->insert([
+            'id_pembeli' => $request->namaPembeli,
+            'id_barang' => $request->namaBarang,
+            'tgl_beli' => $tanggal
+        ]);
+        return redirect('/transaksi')->with('sukses','Data berhasil diinput');
     }
 
     /**

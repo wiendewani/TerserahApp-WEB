@@ -23,7 +23,7 @@
                 <a class="nav-link" href="\pembeli">Customers</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Transaction</a>
+                <a class="nav-link" href="\transaksi">Transaction</a>
             </li>
 
 

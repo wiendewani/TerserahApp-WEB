@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+// Home page Controller
+Route::get('/', 'HomeController@index');
 
 // START Pembeli Controller
 Route::get('/pembeli', ['middleware' => 'auth', 'uses' => 'PembeliController@index']);
@@ -29,45 +30,10 @@ Route::get('/pembeli/search', ['middleware' => 'auth', 'uses' => 'PembeliControl
 
 
 
-
+// START Transaksi Controller
 Route::get('/transaksi', ['middleware' => 'auth', 'uses' =>'TransaksiController@index']);
-Route::resource('/transaksi/create', 'TransaksiController@create');  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Route::post('/transaksi/create', ['middleware' => 'auth', 'uses' => 'TransaksiController@create']);  
+// END Transaksi Controller
 
 
 
