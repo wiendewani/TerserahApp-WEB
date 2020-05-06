@@ -1,5 +1,12 @@
 <?php
 
+/*
+Nama
+NIM
+
+pembeli controller function CURD
+
+*/
 namespace App\Http\Controllers;
 
 

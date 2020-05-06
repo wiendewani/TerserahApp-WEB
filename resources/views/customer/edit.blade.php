@@ -2,14 +2,21 @@
 @extends('layouts.master')
 
 @section('content')
-        <h1>Edit Data Pembeli</h1>
+
+<div class="main">
+    <div class="container-fluid">
         @if(session('sukses'))
         <div class="alert alert-success" role="alert">
             {{session('sukses')}}
           </div>
         @endif
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-md-12">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Edit Customer</h3>
+                    </div>
+                    <div class="panel-body">
 
             @foreach($pembeli as $Pembeli)
             <form action="/pembeli/update/{{$Pembeli -> kode_pembeli}}" method="POST">
@@ -44,6 +51,13 @@
                   <button type="submit" class="btn btn-warning">Update</button>
             </form>
             @endforeach
+                    </div>
+                </div>
+            </div>
         </div>
-        </div>
-@endsection
+    </div>
+</div>
+
+
+@stop
+
