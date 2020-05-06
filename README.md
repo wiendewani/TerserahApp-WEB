@@ -13,6 +13,11 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 - [Robust background job processing](https://laravel.com/docs/queues).
 - [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
+Tugas 1 ada di folder nomor 1
+![Penjumlahan](pict/tugas 1 penjumlahan.png)
+![pengurangan](pict/tugas 1 pengurangan.png)
+
+
 ![Register](pict/register.png)
 ![Login](pict/login.png)
 ![home](pict/home.png)
