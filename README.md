@@ -14,8 +14,8 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 - [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
 Tugas 1 ada di folder nomor 1
-![Penjumlahan](pict/tugas 1 penjumlahan.png)
-![pengurangan](pict/tugas 1 pengurangan.png)
+![Penjumlahan](pict/tugas_1_penjumlahan.png)
+![pengurangan](pict/tugas_1_pengurangan.png)
 
 
 ![Register](pict/register.png)
